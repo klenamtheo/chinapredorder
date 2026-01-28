@@ -78,7 +78,7 @@ export default function TrackOrderPage() {
                                 <input
                                     type="text"
                                     placeholder="e.g. ORD-GH-2026-12345"
-                                    className="w-full pl-12 pr-4 h-12 bg-transparent text-sm font-bold focus:outline-none placeholder:font-normal"
+                                    className="w-full pl-12 pr-4 h-12 bg-transparent text-sm font-bold focus:outline-none placeholder:font-normal dark:placeholder:text-white"
                                     value={orderCode}
                                     onChange={(e) => setOrderCode(e.target.value)}
                                 />
@@ -86,7 +86,7 @@ export default function TrackOrderPage() {
                             <button
                                 type="submit"
                                 disabled={!orderCode || searching}
-                                className="px-6 h-12 bg-primary text-primary-foreground rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-primary/90 transition-all disabled:opacity-50 active:scale-95 shadow-lg shadow-primary/20"
+                                className="px-6 h-12 bg-primary text-primary-foreground rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-primary/90 transition-all disabled:opacity-50 active:scale-95 shadow-lg shadow-primary/20 dark:bg-white dark:text-black dark:hover:bg-gray-200"
                             >
                                 {searching ? <Loader2 className="h-5 w-5 animate-spin" /> : "Track"}
                             </button>
