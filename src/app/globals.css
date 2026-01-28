@@ -48,8 +48,8 @@
 .dark {
   --background: #020617;
   /* Blueblack / Slate-950 */
-  --foreground: #f8fafc;
-  /* Slate-50 */
+  --foreground: #ffffff;
+  /* White */
 
   --primary: #facc15;
   /* Yellow-400 */
@@ -57,7 +57,7 @@
 
   --secondary: #1e293b;
   /* Slate-800 */
-  --secondary-foreground: #f8fafc;
+  --secondary-foreground: #ffffff;
 
   --muted: #1e293b;
   --muted-foreground: #94a3b8;
@@ -65,7 +65,7 @@
 
   --card: #0f172a;
   /* Slate-900 */
-  --card-foreground: #f8fafc;
+  --card-foreground: #ffffff;
 
   --border: #1e293b;
 }
