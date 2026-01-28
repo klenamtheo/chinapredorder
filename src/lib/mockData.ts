@@ -10,6 +10,7 @@ export const MOCK_PRODUCTS: Product[] = [
         images: ["/placeholder.svg"],
         status: "active",
         category: "Devices",
+        isEnabled: true,
         createdAt: new Date().toISOString(),
     },
     {
@@ -21,6 +22,7 @@ export const MOCK_PRODUCTS: Product[] = [
         images: ["/placeholder.svg"],
         status: "active",
         category: "Devices",
+        isEnabled: true,
         createdAt: new Date().toISOString(),
     },
     {
@@ -32,6 +34,7 @@ export const MOCK_PRODUCTS: Product[] = [
         images: ["/placeholder.svg"],
         status: "active",
         category: "Accessories",
+        isEnabled: true,
         createdAt: new Date().toISOString(),
     },
     {
@@ -43,6 +46,7 @@ export const MOCK_PRODUCTS: Product[] = [
         images: ["/placeholder.svg"],
         status: "active",
         category: "Bags",
+        isEnabled: true,
         createdAt: new Date().toISOString(),
     },
     {
@@ -54,6 +58,7 @@ export const MOCK_PRODUCTS: Product[] = [
         images: ["/placeholder.svg"],
         status: "active",
         category: "Shoes",
+        isEnabled: true,
         createdAt: new Date().toISOString(),
     },
     {
@@ -65,6 +70,7 @@ export const MOCK_PRODUCTS: Product[] = [
         images: ["/placeholder.svg"],
         status: "active",
         category: "Clothing",
+        isEnabled: true,
         createdAt: new Date().toISOString(),
     },
     {
@@ -76,6 +82,7 @@ export const MOCK_PRODUCTS: Product[] = [
         images: ["/placeholder.svg"],
         status: "active",
         category: "Accessories",
+        isEnabled: true,
         createdAt: new Date().toISOString(),
     },
     {
@@ -87,6 +94,7 @@ export const MOCK_PRODUCTS: Product[] = [
         images: ["/placeholder.svg"],
         status: "active",
         category: "Clothing",
+        isEnabled: true,
         createdAt: new Date().toISOString(),
     }
 ];

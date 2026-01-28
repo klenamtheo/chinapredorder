@@ -239,7 +239,8 @@ export default function AdminDashboardPage() {
                                 <div className={`p-3 rounded-xl bg-muted group-hover:bg-primary/10 transition-colors`}>
                                     <Icon className={`h-6 w-6 ${stat.color}`} />
                                 </div>
-                                <span className="text-[10px] font-black uppercase tracking-widest text-muted-foreground bg-muted px-2 py-0.5 rounded-full">{stat.trend}</span>
+
+
                             </div>
                             <h3 className="text-xs font-bold text-muted-foreground uppercase tracking-widest">{stat.label}</h3>
                             <div className="mt-1 text-2xl font-black text-foreground tracking-tight">{stat.value}</div>

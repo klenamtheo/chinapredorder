@@ -1,16 +1,21 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
 import { useCart } from "@/context/CartContext";
-import { ArrowRight, Loader2 } from "lucide-react";
+import { Loader2 } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { checkoutSchema, CheckoutCreate } from "@/lib/validators";
 import { createOrder } from "@/lib/firestore";
 import { auth } from "@/lib/firebase";
 import { onAuthStateChanged } from "firebase/auth";
-import { usePaystackPayment } from "react-paystack";
+
+// Dynamic import to avoid SSR issues with Paystack
+const PaymentManager = dynamic(() => import("@/components/PaymentManager"), {
+    ssr: false
+});
 
 export default function CheckoutPage() {
     const { cartItems, cartTotal, clearCart } = useCart();
@@ -18,6 +23,7 @@ export default function CheckoutPage() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
     const [user, setUser] = useState<any>(null);
+    const paymentRef = useRef<any>(null);
 
     const {
         register,
@@ -26,7 +32,7 @@ export default function CheckoutPage() {
         watch,
         formState: { errors },
     } = useForm<CheckoutCreate>({
-        resolver: zodResolver(checkoutSchema) as any, // Cast to any to bypass strict Resolver type mismatch
+        resolver: zodResolver(checkoutSchema) as any,
     });
 
     const watchedEmail = watch("email");
@@ -35,12 +41,10 @@ export default function CheckoutPage() {
     const config = {
         reference: (new Date()).getTime().toString(),
         email: watchedEmail || user?.email || "customer@preordergh.com",
-        amount: Math.round(cartTotal * 100), // convert to pesewas
+        amount: Math.round(cartTotal * 100),
         publicKey: process.env.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY || "",
         currency: "GHS",
     };
-
-    const initializePayment = usePaystackPayment(config);
 
     const handlePaymentSuccess = async (reference: any, data: CheckoutCreate) => {
         setLoading(true);
@@ -74,30 +78,20 @@ export default function CheckoutPage() {
         }
     };
 
-    useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (user) => {
-            if (user) {
-                setUser(user);
-                setValue("fullName", user.displayName || "");
-                setValue("email", user.email || "");
-            }
-        });
-        return () => unsubscribe();
-    }, [setValue]);
-
     const onSubmit = (data: CheckoutCreate) => {
         setLoading(true);
         setError("");
 
-        // Artificial delay for better UX
         setTimeout(() => {
-            initializePayment({
-                onSuccess: (reference: any) => handlePaymentSuccess(reference, data),
-                onClose: () => {
-                    setLoading(false);
-                    setError("Payment window closed.");
-                },
-            });
+            if (paymentRef.current) {
+                paymentRef.current.triggerPayment({
+                    onSuccess: (reference: any) => handlePaymentSuccess(reference, data),
+                    onClose: () => {
+                        setLoading(false);
+                        setError("Payment window closed.");
+                    },
+                });
+            }
         }, 2000);
     };
 
@@ -267,7 +261,9 @@ export default function CheckoutPage() {
                         </div>
                     </div>
                 </div>
+
             </div>
-        </div>
+            <PaymentManager ref={paymentRef} config={config} />
+        </div >
     );
 }
