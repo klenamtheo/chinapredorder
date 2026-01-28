@@ -18,10 +18,8 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
         const savedTheme = localStorage.getItem("theme") as Theme;
         if (savedTheme) {
             setTheme(savedTheme);
-        } else if (window.matchMedia("(prefers-color-scheme: light)").matches) {
-            // If user prefers light, maybe respect that, but the request implies blueblack is the main design
-            // Let's stick to dark as default unless saved
         }
+        // Default is light, so no need to check system preference if we want to enforce light default for new users
     }, []);
 
     useEffect(() => {
