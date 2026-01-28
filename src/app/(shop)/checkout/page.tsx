@@ -194,9 +194,7 @@ export default function CheckoutPage() {
                                 <div className="p-5 border border-primary/20 bg-primary/5 rounded-2xl flex items-center justify-between group hover:border-primary/40 transition-all cursor-default">
                                     <div>
                                         <p className="text-base font-bold text-foreground group-hover:text-primary transition-colors">Paystack (MoMo / Card)</p>
-                                        <p className="text-xs text-muted-foreground font-medium">
-                                            Trusted secure payment infrastructure.
-                                        </p>
+
                                     </div>
                                     <div className="h-6 w-6 rounded-full border-4 border-primary bg-primary-foreground ring-1 ring-primary" />
                                 </div>
@@ -256,9 +254,7 @@ export default function CheckoutPage() {
                                 </div>
                             </div>
                         </div>
-                        <div className="p-4 bg-muted/50 rounded-xl border border-border shadow-inner">
-                            <p className="text-[10px] text-muted-foreground font-bold uppercase tracking-widest text-center">Secure Checkout & Fast Delivery</p>
-                        </div>
+
                     </div>
                 </div>
 

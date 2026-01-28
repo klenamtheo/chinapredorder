@@ -6,7 +6,7 @@ import { Mail, Phone } from "lucide-react";
 
 export function Footer() {
     const pathname = usePathname();
-    const isFooterHiddenPage = pathname === "/login" || pathname === "/signup" || pathname === "/cart" || pathname === "/checkout" || pathname?.startsWith("/order-confirmation") || pathname === "/account";
+    const isFooterHiddenPage = pathname === "/login" || pathname === "/signup" || pathname === "/cart" || pathname === "/checkout" || pathname?.startsWith("/order-confirmation") || pathname === "/account" || pathname === "/track";
 
     if (isFooterHiddenPage) return null;
 
