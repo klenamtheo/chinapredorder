@@ -1,0 +1,71 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // --- Helper Functions ---
+    
+    // Check if the user is authenticated
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    function isAdmin() {
+      return isAuthenticated() && 
+        exists(/databases/$(database)/documents/users/$(request.auth.uid)) &&
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role in ['admin', 'super_admin'];
+    }
+
+    // --- Collection Rules ---
+
+    // Products Collection
+    // Public: Read (Browse products)
+    // Admin: Create, Update, Delete
+    match /products/{productId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    // Orders Collection
+    // Public: Create (Place order during checkout)
+    // Public: Get (Track order by ID - specific document only, no listing)
+    // Customer: List (View their own order history)
+    // Admin: List (View all orders), Update (Change status), Delete
+    match /orders/{orderId} {
+      allow create: if true;
+      allow get: if true;
+      allow list: if isAdmin() || (isAuthenticated() && (
+        resource.data.customerId == request.auth.uid || 
+        resource.data.customerEmail == request.auth.token.email
+      ));
+      allow update, delete: if isAdmin();
+    }
+
+    // Users Collection (Profiles)
+    // Security: Only the user can read/write their own profile
+    match /users/{userId} {
+      allow read, write: if isAuthenticated() && request.auth.uid == userId;
+      allow list: if isAdmin();
+    }
+
+    // Admins Collection
+    // Security: Only the admin themselves can read their profile to verify role
+    match /admins/{adminId} {
+      allow read: if isAuthenticated() && request.auth.uid == adminId;
+      allow write: if false; // Managed manually or by super-admin script
+    }
+
+    // Support Messages Collection
+    // Public: Create (Contact Form)
+    // Admin: Read
+    match /support_messages/{messageId} {
+      allow create: if true;
+      allow read, update, delete: if isAdmin();
+    }
+
+    // Activity Logs Collection
+    // Admin: Read, Write (Log actions)
+    match /activity_logs/{logId} {
+      allow read, write: if isAdmin();
+    }
+  }
+}
