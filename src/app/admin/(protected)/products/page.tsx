@@ -9,6 +9,7 @@ import { getProductsRealtime, addProduct, updateProduct, deleteProduct } from "@
 import { MOCK_PRODUCTS } from "@/lib/mockData";
 import { useToast } from "@/context/ToastContext";
 import { ConfirmModal } from "@/components/ConfirmModal";
+import { ImageUpload } from "@/components/ImageUpload";
 
 export const dynamic = "force-dynamic";
 
@@ -293,18 +294,24 @@ export default function AdminProductsPage() {
                                 </div>
                             </div>
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                                <div className="space-y-2">
-                                    <label className="text-[10px] font-black text-foreground uppercase tracking-widest pl-1">Image 1 (Main)</label>
-                                    <input name="image1" value={formData.image1} onChange={handleInputChange} className="flex h-11 w-full rounded-2xl border border-border bg-background px-4 py-2 text-xs font-bold transition-all focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary" placeholder="URL 1" />
-                                </div>
-                                <div className="space-y-2">
-                                    <label className="text-[10px] font-black text-foreground uppercase tracking-widest pl-1">Image 2</label>
-                                    <input name="image2" value={formData.image2} onChange={handleInputChange} className="flex h-11 w-full rounded-2xl border border-border bg-background px-4 py-2 text-xs font-bold transition-all focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary" placeholder="URL 2" />
-                                </div>
-                                <div className="space-y-2">
-                                    <label className="text-[10px] font-black text-foreground uppercase tracking-widest pl-1">Image 3</label>
-                                    <input name="image3" value={formData.image3} onChange={handleInputChange} className="flex h-11 w-full rounded-2xl border border-border bg-background px-4 py-2 text-xs font-bold transition-all focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary" placeholder="URL 3" />
-                                </div>
+                                <ImageUpload
+                                    label="Image 1 (Main)"
+                                    value={formData.image1}
+                                    onChange={(url) => setFormData(prev => ({ ...prev, image1: url }))}
+                                    onError={(error) => showToast(error, "error")}
+                                />
+                                <ImageUpload
+                                    label="Image 2"
+                                    value={formData.image2}
+                                    onChange={(url) => setFormData(prev => ({ ...prev, image2: url }))}
+                                    onError={(error) => showToast(error, "error")}
+                                />
+                                <ImageUpload
+                                    label="Image 3"
+                                    value={formData.image3}
+                                    onChange={(url) => setFormData(prev => ({ ...prev, image3: url }))}
+                                    onError={(error) => showToast(error, "error")}
+                                />
                             </div>
                             <div className="space-y-2">
                                 <label className="text-xs font-black text-foreground uppercase tracking-widest pl-1">Description</label>

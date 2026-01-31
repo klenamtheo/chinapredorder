@@ -38,6 +38,7 @@ To run this project, you need to set up your environment variables.
 - `NEXT_PUBLIC_FIREBASE_APP_ID`
 - `NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY`
 - `PAYSTACK_SECRET_KEY`
+- `NEXT_PUBLIC_IMGBB_API_KEY` (Get from [ImgBB API](https://api.imgbb.com/))
 
 ## Learn More
 ...
