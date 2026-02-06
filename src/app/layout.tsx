@@ -13,6 +13,9 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   title: "Nocta - Your Premium Digital Store",
   description: "Shop the latest fashion and accessories at Nocta.",
+  icons: {
+    icon: "/icon.png",
+  },
 };
 
 export default function RootLayout({

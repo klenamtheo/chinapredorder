@@ -9,6 +9,7 @@ import { LayoutDashboard, Package, ShoppingBag, Users, Settings, LogOut, X, Sun,
 import { useTheme } from "@/context/ThemeContext";
 import Link from "next/link";
 import { Loader2 } from "lucide-react";
+import AdminNotifications from "@/components/admin/AdminNotifications";
 
 export default function AdminProtectedLayout({ children }: { children: React.ReactNode }) {
     const [loading, setLoading] = useState(true);
@@ -136,9 +137,16 @@ export default function AdminProtectedLayout({ children }: { children: React.Rea
 
             {/* Main Content */}
             <div className="flex-1 flex flex-col min-w-0">
+                {/* Desktop Header */}
+                <header className="h-20 border-b border-border bg-card hidden md:flex items-center justify-end px-8 gap-4">
+                    <AdminNotifications />
+                </header>
+
+                {/* Mobile Header */}
                 <header className="h-20 border-b border-border bg-card flex items-center px-8 justify-between md:hidden">
                     <span className="font-black tracking-tighter">Nocta<span className="text-primary">.</span></span>
                     <div className="flex items-center gap-2">
+                        <AdminNotifications />
                         <button
                             onClick={toggleTheme}
                             className="h-10 w-10 flex items-center justify-center rounded-xl bg-muted text-muted-foreground hover:text-primary transition-colors"

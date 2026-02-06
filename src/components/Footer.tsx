@@ -4,6 +4,8 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Mail, Phone } from "lucide-react";
 
+import Image from "next/image";
+
 export function Footer() {
     const pathname = usePathname();
     const isFooterHiddenPage = pathname === "/login" || pathname === "/signup" || pathname === "/cart" || pathname === "/checkout" || pathname?.startsWith("/order-confirmation") || pathname === "/account" || pathname === "/track";
@@ -18,7 +20,14 @@ export function Footer() {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
                     <div className="space-y-8">
                         <div>
-                            <h3 className="font-bold text-2xl text-foreground mb-4">Nocta<span className="text-primary">.</span></h3>
+                            <div className="flex items-center gap-3 mb-4">
+                                <img
+                                    src="/logo.png"
+                                    alt="Nocta Logo"
+                                    className="h-10 w-10 object-contain"
+                                />
+                                <h3 className="font-bold text-2xl text-foreground">Nocta<span className="text-primary">.</span></h3>
+                            </div>
                             <p className="text-sm text-muted-foreground leading-relaxed max-w-sm">
                                 Your premium destination for style and quality. We bring you the best fashion and accessories, delivered with speed and reliability.
                             </p>
