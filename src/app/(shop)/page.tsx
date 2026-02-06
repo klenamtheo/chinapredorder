@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, Package, Truck, CheckCircle, Loader2 } from "lucide-react";
+import { Star, Sparkles, ArrowRight, Package, Truck, CheckCircle, Loader2 } from "lucide-react";
 import { ProductCard } from "@/components/ProductCard";
 import { FAQ } from "@/components/FAQ";
 import { useProducts } from "@/hooks/useProducts";
@@ -11,20 +11,27 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen">
-      <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-secondary/30">
-        <div className="container px-4 md:px-6 mx-auto">
+      <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 bg-secondary/30 relative overflow-hidden">
+        {/* Background Decorative Elements */}
+        <div className="absolute top-20 left-10 opacity-10 animate-float">
+          <Star className="h-12 w-12 text-primary" />
+        </div>
+        <div className="absolute bottom-20 right-10 opacity-10 animate-float" style={{ animationDelay: '1s' }}>
+          <Star className="h-16 w-16 text-primary" />
+        </div>
+
+        <div className="container px-4 md:px-6 mx-auto relative z-10">
           <div className="flex flex-col items-center space-y-4 text-center">
             <div className="space-y-4">
-              <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl/none text-foreground flex flex-col items-center gap-2">
-                <span>Import Direct from</span>
-                <span className="text-primary flex flex-wrap justify-center items-center gap-2 md:gap-6 mt-2">
-                  China
-                  <ArrowRight className="h-6 w-6 md:h-16 md:w-16 animate-pulse" />
-                  Ghana
+              <h1 className="text-6xl font-black tracking-tighter sm:text-7xl md:text-8xl lg:text-9xl text-foreground flex items-center justify-center gap-4 md:gap-8">
+                <Sparkles className="h-8 w-8 md:h-16 md:w-16 text-primary animate-shine" />
+                <span className="bg-clip-text text-transparent bg-gradient-to-b from-foreground to-foreground/70">
+                  Nocta
                 </span>
+                <Sparkles className="h-8 w-8 md:h-16 md:w-16 text-primary animate-shine" style={{ animationDelay: '1s' }} />
               </h1>
-              <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl font-medium">
-                Secure pre-orders, transparent tracking, and reliable delivery. The smartest way to shop for quality goods.
+              <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl font-medium tracking-tight">
+                Your premium digital store for the latest fashion, sneakers, and accessories. Experience quality and style delivered to your doorstep.
               </p>
             </div>
             <div className="flex flex-wrap items-center justify-center gap-4">
@@ -59,8 +66,8 @@ export default function Home() {
               <Loader2 className="h-8 w-8 animate-spin text-primary" />
             </div>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-              {products.slice(0, 4).map((product, index) => (
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6">
+              {products.slice(0, 10).map((product, index) => (
                 <ProductCard key={product.id} product={product} priority={true} />
               ))}
               {products.length === 0 && (
@@ -80,27 +87,27 @@ export default function Home() {
               <div className="p-4 bg-primary/10 rounded-full">
                 <Package className="h-10 w-10 text-primary" />
               </div>
-              <h2 className="text-xl font-bold">Browse & Order</h2>
+              <h2 className="text-xl font-bold">Premium Selection</h2>
               <p className="text-muted-foreground">
-                Select from our curated list of high-quality products available for pre-order.
+                Explore our curated collection of premium products, from sneakers to office wear, all available in stock.
               </p>
             </div>
             <div className="flex flex-col items-center space-y-4 text-center">
               <div className="p-4 bg-primary/10 rounded-full">
                 <CheckCircle className="h-10 w-10 text-primary" />
               </div>
-              <h2 className="text-xl font-bold">Secure Payment</h2>
+              <h2 className="text-xl font-bold">Local Convenience</h2>
               <p className="text-muted-foreground">
-                Pay securely using Mobile Money or Card. Your funds are safe with us.
+                Shopping made easy right here in Ghana. No international waiting times or hidden fees.
               </p>
             </div>
             <div className="flex flex-col items-center space-y-4 text-center">
               <div className="p-4 bg-primary/10 rounded-full">
                 <Truck className="h-10 w-10 text-primary" />
               </div>
-              <h2 className="text-xl font-bold">Track & Receive</h2>
+              <h2 className="text-xl font-bold">Same Day Delivery</h2>
               <p className="text-muted-foreground">
-                Follow your order from the supplier in China to your doorstep in Ghana.
+                Enjoy reliable and ultra-fast shipping from our local warehouse in Ghana to your doorstep.
               </p>
             </div>
           </div>

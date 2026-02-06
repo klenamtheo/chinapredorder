@@ -40,7 +40,7 @@ export default function CheckoutPage() {
     // Paystack Config
     const config = {
         reference: (new Date()).getTime().toString(),
-        email: watchedEmail || user?.email || "customer@preordergh.com",
+        email: watchedEmail || user?.email || "customer@nocta.com",
         amount: Math.round(cartTotal * 100),
         publicKey: process.env.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY || "",
         currency: "GHS",

@@ -9,11 +9,10 @@ import Link from "next/link";
 import Image from "next/image";
 
 const STATUS_STEPS = [
-    { key: "paid", label: "Paid", description: "Order confirmed and paid", icon: Clock },
-    { key: "supplier_ordered", label: "Supplier Ordered", description: "Vendor has placed the order in China", icon: Package },
-    { key: "in_transit", label: "In Transit", description: "Items are on their way to Ghana", icon: Truck },
-    { key: "arrived", label: "Arrived in GH", description: "Items have arrived at our warehouse", icon: MapPin },
-    { key: "out_for_delivery", label: "Out for Delivery", description: "Agent is delivering to your location", icon: Truck },
+    { key: "paid", label: "Paid", description: "Order confirmed and payment received", icon: Clock },
+    { key: "processing", label: "Processing", description: "We are preparing your items", icon: Package },
+    { key: "packed", label: "Packed", description: "Order is packed and ready for dispatch", icon: CheckCircle },
+    { key: "in_transit", label: "In Transit", description: "Agent is on the way to your location", icon: Truck },
     { key: "delivered", label: "Delivered", description: "Package received safely", icon: CheckCircle },
 ];
 
@@ -69,7 +68,7 @@ export default function TrackOrderPage() {
                                 Track Your <span className="text-primary">Order</span>
                             </h1>
                             <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl font-medium">
-                                Enter your order code to see real-time updates on your shipment from China.
+                                Enter your order code to see the real-time status of your delivery.
                             </p>
                         </div>
                         <form onSubmit={handleSearch} className="w-full max-w-md flex gap-3 p-1 bg-card border border-border rounded-2xl shadow-2xl focus-within:border-primary transition-colors">
@@ -273,14 +272,14 @@ export default function TrackOrderPage() {
                                     How Tracking <span className="text-primary">Works</span>
                                 </h2>
                                 <p className="text-muted-foreground font-medium leading-relaxed">
-                                    Once your pre-order is confirmed, our team in China begins the procurement process.
+                                    Once your order is confirmed, our local team begins processing your items immediately.
                                     Our system updates your status automatically at every major milestone.
                                 </p>
                                 <ul className="space-y-4">
                                     {[
-                                        "Real-time visibility from warehouse to doorstep.",
-                                        "Notification at every transit milestone.",
-                                        "Exact GPS tracking once delivery agent is assigned."
+                                        "Real-time visibility from our local warehouse to your doorstep.",
+                                        "Notification at every major processing milestone.",
+                                        "Exact GPS tracking once our local delivery agent is assigned."
                                     ].map((item, i) => (
                                         <li key={i} className="flex gap-3 font-bold text-sm text-foreground">
                                             <CheckCircle className="h-5 w-5 text-primary shrink-0" />

@@ -6,7 +6,7 @@ import { useProducts } from "@/hooks/useProducts";
 import { Product } from "@/types";
 import { Loader2 } from "lucide-react";
 
-const CATEGORIES = ["All", "Bags", "Shoes", "Clothing", "Devices", "Accessories"];
+const CATEGORIES = ["All", "Socks", "Shorts", "Trousers", "Slides", "Sneakers", "Tops/Shirts", "Office Wears", "Caps", "Belts", "Chains", "Glasses", "Briefs/Boxers", "Bags", "Accessories"];
 
 export default function ShopPage() {
     const { products, loading } = useProducts();
@@ -26,7 +26,7 @@ export default function ShopPage() {
                             Shop Our <span className="text-primary">Collection</span>
                         </h1>
                         <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl font-medium">
-                            Browse through our wide range of products available for pre-order.
+                            Explore our curated selection of quality items.
                         </p>
                     </div>
                 </div>
@@ -56,7 +56,7 @@ export default function ShopPage() {
                             <Loader2 className="h-8 w-8 animate-spin text-primary" />
                         </div>
                     ) : filteredProducts.length > 0 ? (
-                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6">
                             {filteredProducts.map((product, index) => (
                                 <ProductCard key={product.id} product={product} priority={index < 4} />
                             ))}

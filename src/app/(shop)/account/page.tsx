@@ -157,8 +157,8 @@ export default function AccountPage() {
                         <section className="bg-card border border-border rounded-[40px] p-8 shadow-xl shadow-black/5">
                             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
                                 <div>
-                                    <h2 className="text-2xl font-black text-foreground tracking-tight">Your <span className="text-primary">PreOrders</span></h2>
-                                    <p className="text-xs text-muted-foreground font-medium mt-1">Real-time status of your items from China</p>
+                                    <h2 className="text-2xl font-black text-foreground tracking-tight">Your <span className="text-primary">Orders</span></h2>
+                                    <p className="text-xs text-muted-foreground font-medium mt-1">Real-time status of your items</p>
                                 </div>
                                 <div className="relative">
                                     <Search className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground" />
@@ -199,7 +199,7 @@ export default function AccountPage() {
                                     activeOrders.length > 0 ? (
                                         activeOrders.map((order) => <OrderCard key={order.id} order={order} />)
                                     ) : (
-                                        <EmptyOrders message="No active preorders found." />
+                                        <EmptyOrders message="No active orders found." />
                                     )
                                 )}
 
@@ -254,10 +254,10 @@ export default function AccountPage() {
                                 <div className="h-10 w-10 bg-primary/20 rounded-xl flex items-center justify-center text-primary">
                                     <Truck className="h-5 w-5" />
                                 </div>
-                                <h3 className="font-black text-sm text-foreground uppercase tracking-widest">Shipping Support</h3>
+                                <h3 className="font-black text-sm text-foreground uppercase tracking-widest">Delivery Support</h3>
                             </div>
                             <p className="text-xs text-muted-foreground font-medium leading-relaxed mb-6">
-                                Need help with an order? Our support team is available 24/7 for all pre-order inquiries.
+                                Need help with an order? Our support team is available 24/7 for all delivery inquiries.
                             </p>
                             <button
                                 onClick={() => setIsSupportOpen(true)}
@@ -380,7 +380,7 @@ export default function AccountPage() {
                             </a>
 
                             <a
-                                href="mailto:support@preordergh.com"
+                                href="mailto:info@nocta.com"
                                 className="flex items-center gap-4 p-4 rounded-2xl border border-border hover:bg-muted/50 hover:border-primary/50 transition-all group"
                             >
                                 <div className="h-10 w-10 bg-muted rounded-xl flex items-center justify-center text-foreground group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
@@ -388,7 +388,7 @@ export default function AccountPage() {
                                 </div>
                                 <div>
                                     <p className="font-black text-sm text-foreground">Email Support</p>
-                                    <p className="text-xs text-muted-foreground">support@preordergh.com</p>
+                                    <p className="text-xs text-muted-foreground">info@nocta.com</p>
                                 </div>
                             </a>
                         </div>
@@ -401,9 +401,9 @@ export default function AccountPage() {
 
 function OrderCard({ order }: { order: Order }) {
     const statuses = [
-        { key: 'paid', label: 'Processing', icon: Clock },
-        { key: 'supplier_ordered', label: 'Ordered', icon: Package },
-        { key: 'arrived', label: 'Arrived GH', icon: MapPin },
+        { key: 'paid', label: 'Paid', icon: Clock },
+        { key: 'processing', label: 'Processing', icon: Package },
+        { key: 'packed', label: 'Packed', icon: MapPin },
         { key: 'delivered', label: 'Delivered', icon: CheckCircle },
     ];
 
@@ -465,7 +465,7 @@ function OrderCard({ order }: { order: Order }) {
                     </div>
                     <div>
                         <p className="text-xs font-bold text-foreground">{order.items.length} items • GHS {order.totalAmount.toFixed(2)}</p>
-                        <p className="text-[10px] font-medium text-muted-foreground">Estimated delivery in 14-21 days</p>
+                        <p className="text-[10px] font-medium text-muted-foreground">Estimated delivery in 1-3 business days</p>
                     </div>
                 </div>
             </div>

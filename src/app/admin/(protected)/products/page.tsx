@@ -285,10 +285,19 @@ export default function AdminProductsPage() {
                                 <div className="space-y-2">
                                     <label className="text-xs font-black text-foreground uppercase tracking-widest pl-1">Category</label>
                                     <select name="category" value={formData.category} onChange={handleInputChange} className="flex h-12 w-full rounded-2xl border border-border bg-background px-4 py-2 text-sm font-bold transition-all focus:outline-none focus:ring-4 focus:ring-primary/10 focus:border-primary cursor-pointer">
+                                        <option value="Socks">Socks</option>
+                                        <option value="Shorts">Shorts</option>
+                                        <option value="Trousers">Trousers</option>
+                                        <option value="Slides">Slides</option>
+                                        <option value="Sneakers">Sneakers</option>
+                                        <option value="Tops/Shirts">Tops/Shirts</option>
+                                        <option value="Office Wears">Office Wears</option>
+                                        <option value="Caps">Caps</option>
+                                        <option value="Belts">Belts</option>
+                                        <option value="Chains">Chains</option>
+                                        <option value="Glasses">Glasses</option>
+                                        <option value="Briefs/Boxers">Briefs/Boxers</option>
                                         <option value="Bags">Bags</option>
-                                        <option value="Shoes">Shoes</option>
-                                        <option value="Clothing">Clothing</option>
-                                        <option value="Devices">Devices</option>
                                         <option value="Accessories">Accessories</option>
                                     </select>
                                 </div>

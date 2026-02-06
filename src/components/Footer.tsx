@@ -18,9 +18,9 @@ export function Footer() {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
                     <div className="space-y-8">
                         <div>
-                            <h3 className="font-bold text-2xl text-foreground mb-4">PreOrder<span className="text-primary">GH</span></h3>
+                            <h3 className="font-bold text-2xl text-foreground mb-4">Nocta<span className="text-primary">.</span></h3>
                             <p className="text-sm text-muted-foreground leading-relaxed max-w-sm">
-                                Your trusted bridge to infinite possibilities. We simplify global shopping, bringing the world's market straight to your doorstep in Ghana with speed and reliability.
+                                Your premium destination for style and quality. We bring you the best fashion and accessories, delivered with speed and reliability.
                             </p>
                         </div>
 
@@ -42,7 +42,7 @@ export function Footer() {
                                     </div>
                                     <div className="pt-1">
                                         <p className="font-bold text-foreground">Email Us</p>
-                                        <span>info@preordergh.com</span>
+                                        <span>info@nocta.com</span>
                                     </div>
                                 </li>
                                 <li className="flex items-start gap-4 text-sm text-muted-foreground group">
@@ -76,7 +76,7 @@ export function Footer() {
 
                 <div className="mt-16 pt-8 border-t border-border/50 text-center">
                     <p className="text-[10px] font-black text-muted-foreground uppercase tracking-[0.2em]">
-                        © 2026 PreOrderGH. All rights reserved
+                        © 2026 Nocta. All rights reserved
                     </p>
                     <p className="text-[9px] text-muted-foreground/50 mt-2 font-serif italic tracking-wider">
                         built by KlenamDev

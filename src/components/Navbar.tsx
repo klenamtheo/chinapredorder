@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Package, ShoppingCart, Sun, Moon, User, Menu, X } from "lucide-react";
+import { ShoppingBag, Sparkles, ShoppingCart, Sun, Moon, User, Menu, X } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 import { useTheme } from "@/context/ThemeContext";
 import { auth } from "@/lib/firebase";
@@ -24,9 +24,12 @@ export function Navbar() {
     return (
         <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
             <div className="container mx-auto px-4 md:px-6 h-16 flex items-center justify-between">
-                <Link className="flex items-center gap-2 font-bold text-xl group" href="/">
-                    <Package className="h-6 w-6 text-primary transition-transform group-hover:scale-110" />
-                    <span className="tracking-tight text-foreground">PreOrder<span className="text-primary transition-colors">GH</span></span>
+                <Link className="flex items-center gap-2 font-black text-2xl group tracking-tighter" href="/">
+                    <div className="relative">
+                        <ShoppingBag className="h-7 w-7 text-primary transition-transform group-hover:scale-110" />
+                        <Sparkles className="absolute -top-1 -right-1 h-3 w-3 text-primary animate-pulse" />
+                    </div>
+                    <span className="text-foreground">Nocta<span className="text-primary">.</span></span>
                 </Link>
                 <nav className="hidden md:flex gap-8 items-center">
                     <Link className="text-sm font-semibold hover:text-primary transition-colors text-foreground/80" href="/">

@@ -24,7 +24,7 @@ export default function AdminDashboardPage() {
             const csvRows = [];
 
             // Header
-            csvRows.push(['PreOrderGH Admin Report', `Generated: ${new Date().toLocaleString()}`]);
+            csvRows.push(['Nocta Admin Report', `Generated: ${new Date().toLocaleString()}`]);
             csvRows.push([]); // Empty line
 
             // Stats Section

@@ -10,20 +10,24 @@ interface FAQItem {
 
 const faqs: FAQItem[] = [
     {
-        question: "How does pre-ordering work?",
-        answer: "You browse our catalog of products available from China. Once you place an order and make a payment, we consolidate orders and ship them to Ghana. The entire process takes about 2-3 weeks.",
+        question: "How does Nocta work?",
+        answer: "Nocta is a premium digital store based in Ghana. You can browse our curated selection of fashion and accessories, place your order, and have it delivered directly to your location in real-time.",
     },
     {
         question: "What are the payment options?",
-        answer: "We accept secure payments via Mobile Money (MTN, Vodafone, AirtelTigo) and Credit/Debit Cards.",
+        answer: "We accept secure payments via Mobile Money (MTN, Telecel, AT) and Credit/Debit Cards. All transactions are handled securely.",
+    },
+    {
+        question: "How long does delivery take?",
+        answer: "Since we are based locally in Ghana, delivery typically takes 1-3 business days depending on your location.",
     },
     {
         question: "How can I track my order?",
-        answer: "Once your order is confirmed, you will receive a tracking number. You can use this number on our 'Track Order' page to see real-time updates on your shipment.",
+        answer: "Once your order is confirmed, you will receive a tracking number. You can use this number on our 'Track Order' page to see the real-time status of your delivery.",
     },
     {
         question: "Do you offer refunds?",
-        answer: "Yes, if your product arrives damaged or is not as described, you can request a refund within 7 days of delivery.",
+        answer: "Yes, if your product arrives damaged or is not as described, you can request a refund or exchange within 7 days of delivery.",
     },
 ];
 
@@ -42,7 +46,7 @@ export function FAQ() {
                         Frequently Asked <span className="text-primary">Questions</span>
                     </h2>
                     <p className="text-muted-foreground md:text-lg max-w-2xl font-medium">
-                        Find answers to common questions about our pre-order service and delivery process.
+                        Find answers to common questions about our products, payments, and local delivery process.
                     </p>
                 </div>
                 <div className="space-y-4">
@@ -50,8 +54,8 @@ export function FAQ() {
                         <div
                             key={index}
                             className={`border rounded-xl overflow-hidden transition-all duration-200 ${openIndex === index
-                                    ? "border-primary ring-1 ring-primary/20"
-                                    : "border-border hover:border-primary/50"
+                                ? "border-primary ring-1 ring-primary/20"
+                                : "border-border hover:border-primary/50"
                                 }`}
                         >
                             <button

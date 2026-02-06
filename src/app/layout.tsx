@@ -11,8 +11,8 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "PreOrderGH - Pre-order items with ease",
-  description: "The best platform for pre-ordering items in Ghana.",
+  title: "Nocta - Your Premium Digital Store",
+  description: "Shop the latest fashion and accessories at Nocta.",
 };
 
 export default function RootLayout({

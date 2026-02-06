@@ -86,7 +86,7 @@ export default function SignupPage() {
             <div className="w-full max-w-md z-10">
                 <div className="text-center mb-10">
                     <h1 className="text-3xl font-black text-foreground tracking-tight">Create your <span className="text-primary">Account</span></h1>
-                    <p className="text-muted-foreground font-medium mt-2">Join us for a faster and smoother preorder experience.</p>
+                    <p className="text-muted-foreground font-medium mt-2">Join us for a faster and smoother shopping experience.</p>
                 </div>
 
                 <div className="bg-card border border-border rounded-[40px] p-10 shadow-2xl shadow-black/10">

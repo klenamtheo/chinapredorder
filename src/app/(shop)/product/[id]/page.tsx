@@ -109,7 +109,7 @@ export default function ProductDetailPage() {
 
                         <div className="prose prose-invert">
                             <p className="text-muted-foreground font-medium leading-relaxed text-lg">
-                                {product.description || "No description available for this product. High-quality imported item available for pre-order direct from China."}
+                                {product.description || "No description available for this product. High-quality premium item available for immediate purchase at Nocta."}
                             </p>
                         </div>
 
@@ -118,14 +118,14 @@ export default function ProductDetailPage() {
                                 <ShieldCheck className="h-6 w-6 text-primary" />
                                 <div>
                                     <p className="text-[10px] font-black text-foreground uppercase tracking-widest">Quality Guaranteed</p>
-                                    <p className="text-xs text-muted-foreground font-medium">Verified Supplier</p>
+                                    <p className="text-xs text-muted-foreground font-medium">Verified Quality</p>
                                 </div>
                             </div>
                             <div className="p-4 bg-card border border-border rounded-3xl flex items-center gap-3">
                                 <Truck className="h-6 w-6 text-primary" />
                                 <div>
-                                    <p className="text-[10px] font-black text-foreground uppercase tracking-widest">Global Shipping</p>
-                                    <p className="text-xs text-muted-foreground font-medium">China to Ghana</p>
+                                    <p className="text-[10px] font-black text-foreground uppercase tracking-widest">Fast Delivery</p>
+                                    <p className="text-xs text-muted-foreground font-medium">Across Ghana</p>
                                 </div>
                             </div>
                         </div>
@@ -135,15 +135,15 @@ export default function ProductDetailPage() {
                             className="w-full h-16 bg-primary text-primary-foreground rounded-3xl font-black text-sm uppercase tracking-widest shadow-2xl shadow-primary/30 hover:bg-primary/90 active:scale-[0.98] transition-all flex items-center justify-center gap-3 group"
                         >
                             <ShoppingCart className="h-5 w-5 group-hover:-translate-y-1 transition-transform" />
-                            Add to Pre-Order
+                            Add to Cart
                         </button>
 
                         <div className="p-6 bg-muted/30 rounded-[32px] border border-border border-dashed space-y-4">
                             <h4 className="text-[10px] font-black text-foreground uppercase tracking-widest flex items-center gap-2">
-                                <CheckCircle className="h-4 w-4 text-green-500" /> Pre-Order Information
+                                <CheckCircle className="h-4 w-4 text-green-500" /> Store Information
                             </h4>
                             <p className="text-xs text-muted-foreground font-medium leading-relaxed">
-                                This item will be ordered from our international vendors. Estimated time of arrival is 14-21 days from order confirmation. You will receive a tracking code once the item is in transit.
+                                This item is in stock and ready for delivery. Estimated delivery time is 1-3 business days depending on your location in Ghana. You will receive a tracking code once the item is dispatched.
                             </p>
                         </div>
                     </div>

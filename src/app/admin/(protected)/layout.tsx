@@ -80,10 +80,7 @@ export default function AdminProtectedLayout({ children }: { children: React.Rea
             {/* Sidebar */}
             <aside className="w-72 border-r border-border bg-card hidden md:flex flex-col sticky top-0 h-screen shadow-xl shadow-black/5">
                 <div className="h-20 flex items-center px-8 border-b border-border">
-                    <Link href="/" className="flex items-center gap-2 font-black text-xl tracking-tighter">
-                        <Package className="h-6 w-6 text-primary" />
-                        <span>PreOrder<span className="text-primary">GH</span></span>
-                    </Link>
+                    <h3 className="font-bold text-xl tracking-tighter">Nocta<span className="text-primary">.</span></h3>
                 </div>
                 <div className="p-6">
                     <div className="flex items-center gap-3 p-4 bg-muted/50 rounded-2xl border border-border mb-8">
@@ -140,7 +137,7 @@ export default function AdminProtectedLayout({ children }: { children: React.Rea
             {/* Main Content */}
             <div className="flex-1 flex flex-col min-w-0">
                 <header className="h-20 border-b border-border bg-card flex items-center px-8 justify-between md:hidden">
-                    <span className="font-black tracking-tighter">PreOrder<span className="text-primary">GH</span></span>
+                    <span className="font-black tracking-tighter">Nocta<span className="text-primary">.</span></span>
                     <div className="flex items-center gap-2">
                         <button
                             onClick={toggleTheme}
@@ -169,7 +166,7 @@ export default function AdminProtectedLayout({ children }: { children: React.Rea
                         <div className="h-20 flex items-center justify-between px-8 border-b border-border">
                             <Link href="/" className="flex items-center gap-2 font-black text-xl tracking-tighter">
                                 <Package className="h-6 w-6 text-primary" />
-                                <span>PreOrder<span className="text-primary">GH</span></span>
+                                <span>Nocta<span className="text-primary">.</span></span>
                             </Link>
                             <button onClick={() => setMobileMenuOpen(false)} className="h-8 w-8 flex items-center justify-center rounded-lg bg-muted hover:text-destructive transition-colors">
                                 <X className="h-4 w-4" />
