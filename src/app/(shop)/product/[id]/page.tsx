@@ -5,6 +5,7 @@ import { useParams, useRouter } from "next/navigation";
 import { getProductRealtime } from "@/lib/firestore";
 import { Product } from "@/types";
 import { useCart } from "@/context/CartContext";
+import { useToast } from "@/context/ToastContext";
 import { Loader2, ArrowLeft, ShoppingCart, ChevronLeft, ChevronRight, CheckCircle, ShieldCheck, Truck } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -13,6 +14,7 @@ export default function ProductDetailPage() {
     const { id } = useParams();
     const router = useRouter();
     const { addToCart } = useCart();
+    const { showToast } = useToast();
     const [product, setProduct] = useState<Product | null>(null);
     const [loading, setLoading] = useState(true);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -131,8 +133,11 @@ export default function ProductDetailPage() {
                         </div>
 
                         <button
-                            onClick={() => addToCart(product)}
-                            className="w-full h-16 bg-primary text-primary-foreground rounded-3xl font-black text-sm uppercase tracking-widest shadow-2xl shadow-primary/30 hover:bg-primary/90 active:scale-[0.98] transition-all flex items-center justify-center gap-3 group"
+                            onClick={() => {
+                                addToCart(product);
+                                showToast(`Added ${product.name} to cart!`, "success");
+                            }}
+                            className="w-full h-16 bg-primary text-primary-foreground rounded-3xl font-black text-sm uppercase tracking-widest shadow-2xl shadow-primary/30 hover:bg-yellow-400 hover:text-black hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center justify-center gap-3 group"
                         >
                             <ShoppingCart className="h-5 w-5 group-hover:-translate-y-1 transition-transform" />
                             Add to Cart

@@ -6,6 +6,7 @@ import Link from "next/link";
 import { ShoppingCart, ChevronLeft, ChevronRight } from "lucide-react";
 import { Product } from "@/types";
 import { useCart } from "@/context/CartContext";
+import { useToast } from "@/context/ToastContext";
 
 interface ProductCardProps {
     product: Product;
@@ -14,12 +15,14 @@ interface ProductCardProps {
 
 export function ProductCard({ product, priority = false }: ProductCardProps) {
     const { addToCart } = useCart();
+    const { showToast } = useToast();
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
     const handleAddToCart = (e: React.MouseEvent) => {
         e.preventDefault();
         e.stopPropagation();
         addToCart(product);
+        showToast(`Added ${product.name} to cart!`, "success");
     };
 
     const nextImage = (e: React.MouseEvent) => {
@@ -99,7 +102,7 @@ export function ProductCard({ product, priority = false }: ProductCardProps) {
                 <div className="pt-2">
                     <button
                         onClick={handleAddToCart}
-                        className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-primary py-2.5 text-primary-foreground text-xs font-bold hover:bg-primary/90 transition-all shadow-md shadow-primary/10"
+                        className="w-full inline-flex items-center justify-center gap-2 rounded-xl bg-primary py-2.5 text-primary-foreground text-xs font-bold hover:bg-yellow-400 hover:text-black hover:scale-[1.02] active:scale-[0.98] transition-all shadow-md shadow-primary/10"
                     >
                         <ShoppingCart className="h-4 w-4" />
                         Add to Cart

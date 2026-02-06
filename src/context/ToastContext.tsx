@@ -53,7 +53,7 @@ export function useToast() {
 
 function ToastContainer({ toasts, removeToast }: { toasts: Toast[], removeToast: (id: string) => void }) {
     return (
-        <div className="fixed bottom-6 right-6 z-[100] flex flex-col gap-3 pointer-events-none">
+        <div className="fixed bottom-6 right-6 z-[9999] flex flex-col gap-3 pointer-events-none">
             {toasts.map((toast) => (
                 <ToastItem key={toast.id} toast={toast} onClose={() => removeToast(toast.id)} />
             ))}
@@ -77,7 +77,7 @@ function ToastItem({ toast, onClose }: { toast: Toast, onClose: () => void }) {
     };
 
     return (
-        <div className={`pointer-events-auto flex items-center gap-3 px-6 py-4 rounded-3xl border backdrop-blur-md shadow-2xl animate-in fade-in slide-in-from-right-10 duration-300 ${bgColors[toast.type]}`}>
+        <div className={`pointer-events-auto flex items-center gap-3 px-6 py-4 rounded-3xl border backdrop-blur-md shadow-2xl transition-all duration-300 transform translate-x-0 opacity-100 ${bgColors[toast.type]}`}>
             <div className="shrink-0">{icons[toast.type]}</div>
             <p className="text-sm font-bold text-foreground pr-4">{toast.message}</p>
             <button
